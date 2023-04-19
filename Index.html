@@ -1,38 +1,121 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Responsive Website</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" type="text/css" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Header Example</title>
+    <style>
+        /* Header styles */
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px;
+            background-color: #333;
+            color: #fff;
+        }
+
+        header img {
+            height: 50px;
+        }
+
+        .burger {
+            display: none;
+        }
+
+        .menu {
+            display: flex;
+            flex-direction: row;
+            list-style: none;
+            margin-right: 20px;
+        }
+
+        .menu li {
+            margin-left: 20px;
+        }
+
+        .menu a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        /* Media queries for responsive layout */
+        @media screen and (max-width: 768px) {
+            header {
+                flex-direction: column;
+            }
+
+            header img {
+                margin-bottom: 20px;
+            }
+
+            .menu {
+                display: none;
+                flex-direction: column;
+                align-items: center;
+                margin-right: 0;
+                margin-top: 20px;
+            }
+
+            .menu li {
+                margin: 10px 0;
+            }
+
+            .burger {
+                display: block;
+                cursor: pointer;
+            }
+
+            .line {
+                width: 25px;
+                height: 3px;
+                background-color: #fff;
+                margin: 5px;
+                transition: transform 0.3s ease-in-out;
+            }
+
+            .active .line1 {
+                transform: rotate(-45deg) translate(-5px, 6px);
+            }
+
+            .active .line2 {
+                opacity: 0;
+            }
+
+            .active .line3 {
+                transform: rotate(45deg) translate(-5px, -6px);
+            }
+        }
+    </style>
 </head>
 <body>
-	<header>
-		<div class="logo">
-			<img src="logo.png" alt="Logo">
-		</div>
-		<nav>
-			<ul class="menu">
-				<li><a href="#">Home</a></li>
-				<li><a href="#">About</a></li>
-				<li><a href="#">Services</a></li>
-				<li><a href="#">Contact</a></li>
-			</ul>
-			<div class="burger">
-				<div class="line1"></div>
-				<div class="line2"></div>
-				<div class="line3"></div>
-			</div>
-		</nav>
-	</header>
+    <header>
+        <img src="logo.png" alt="Logo">
+        <nav>
+            <ul class="menu">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+            <div class="burger">
+                <div class="line line1"></div>
+                <div class="line line2"></div>
+                <div class="line line3"></div>
+            </div>
+        </nav>
+    </header>
 
-	<main>
-		<!-- Add content here -->
-	</main>
+    <script>
+        const burger = document.querySelector('.burger');
+        const menu = document.querySelector('.menu');
 
-	<footer>
-		<!-- Add footer content here -->
-	</footer>
-
-	<script src="script.js"></script>
+        burger.addEventListener('click', () => {
+            // Toggle the "menu-active" class on the menu
+            menu.classList.toggle('menu-active');
+            
+            // Toggle the "active" class on the burger icon
+            burger.classList.toggle('active');
+        });
+    </script>
 </body>
 </html>
