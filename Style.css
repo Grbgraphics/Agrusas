@@ -54,26 +54,27 @@ nav {
 
 @media screen and (max-width: 768px) {
 	.menu {
-		display: none;
-	}
-
-	.burger {
-		display: block;
-	}
-
-	nav {
-		flex-direction: column;
-	}
-
-	.burger div:nth-child(1) {
-		transform: rotate(-45deg) translate(-5px, 6px);
-	}
-
-	.burger div:nth-child(2) {
-		opacity: 0;
-	}
-
-	.burger div:nth-child(3) {
-		transform: rotate(45deg) translate(-5px, -6px);
-	}
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    margin-right: 20px;
+    transition: transform 0.3s ease-in-out;
+    transform: translateX(100%);
 }
+
+.menu-active {
+    transform: translateX(0%);
+}
+
+.burger.active .line1 {
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.burger.active .line2 {
+    opacity: 0;
+}
+
+.burger.active .line3 {
+    transform: rotate(45deg) translate(-5px, -6px);
+}
+
