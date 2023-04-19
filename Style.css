@@ -1,80 +1,97 @@
-* {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-}
-
+/* Header styles */
 header {
-	display: flex;
-	flex-wrap: wrap;
-	align-items: center;
-	justify-content: space-between;
-	padding: 20px;
-	background-color: #333;
-	color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: #333;
+    color: #fff;
 }
 
-.logo img {
-	height: 50px;
-}
-
-nav {
-	display: flex;
-	align-items: center;
-}
-
-.menu {
-	display: flex;
-	flex-direction: row;
-	list-style: none;
-	margin-right: 20px;
-}
-
-.menu li {
-	margin: 0 10px;
-}
-
-.menu li a {
-	color: #fff;
-	text-decoration: none;
+header img {
+    height: 50px;
 }
 
 .burger {
-	display: none;
-	cursor: pointer;
+    display: none;
 }
 
-.burger div {
-	width: 25px;
-	height: 3px;
-	background-color: #fff;
-	margin: 5px;
-	transition: all 0.3s ease;
-}
-
-@media screen and (max-width: 768px) {
-	.menu {
+.menu {
     display: flex;
     flex-direction: row;
     list-style: none;
     margin-right: 20px;
-    transition: transform 0.3s ease-in-out;
-    transform: translateX(100%);
+}
+
+.menu li {
+    margin-left: 20px;
+}
+
+.menu a {
+    color: #fff;
+    text-decoration: none;
+}
+
+/* Media queries for responsive layout */
+@media screen and (max-width: 768px) {
+    header {
+        flex-direction: column;
+    }
+
+    header img {
+        margin-bottom: 20px;
+    }
+
+    .menu {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        margin-right: 0;
+        margin-top: 20px;
+    }
+
+    .menu li {
+        margin: 10px 0;
+    }
+
+    .burger {
+        display: block;
+        cursor: pointer;
+    }
+
+    .line {
+        width: 25px;
+        height: 3px;
+        background-color: #fff;
+        margin: 5px;
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .active .line1 {
+        transform: rotate(-45deg) translate(-5px, 6px);
+    }
+
+    .active .line2 {
+        opacity: 0;
+    }
+
+    .active .line3 {
+        transform: rotate(45deg) translate(-5px, -6px);
+    }
 }
 
 .menu-active {
-    transform: translateX(0%);
+    display: flex !important;
 }
 
-.burger.active .line1 {
+.active .line1 {
     transform: rotate(-45deg) translate(-5px, 6px);
 }
 
-.burger.active .line2 {
+.active .line2 {
     opacity: 0;
 }
 
-.burger.active .line3 {
+.active .line3 {
     transform: rotate(45deg) translate(-5px, -6px);
 }
-
